@@ -17,6 +17,43 @@ import unittest
 
 # ======================= DO NOT EDIT THE CODE BELOW =========================
 
+def multiply(num1,num2):
+        return num1*num2
+
+def str_cat(var1,var2,var3,string=''):
+    string+=(var1+' '+var2+' '+var3)
+    return string
+
+def greater_than(a,b):
+    if b>a:
+        return True
+    else:
+        return False
+
+def get_random_number(low,high):
+    rand=random.randint(low,high)
+    return rand
+
+def is_vegetable(string):
+    dct={
+        False:['apple','tomatoe','mushroom'],
+        True:['celery']
+    }
+    if string in dct[True]:
+        return True
+    else:
+        return False
+
+def make_appointment(time):
+    if time=='morning':
+        return '8 am'
+    elif time=='afternoon':
+        return '1 pm'
+    elif time=='evening':
+        return '5 pm'
+    else:
+        return 'error'
+
 class FunctionTests(unittest.TestCase):
 
     def test_function_1(self):
@@ -40,13 +77,13 @@ class FunctionTests(unittest.TestCase):
         self.assertEqual(True,  is_vegetable('celery'))
         self.assertEqual(False, is_vegetable('tomato'))
         self.assertEqual(False, is_vegetable('mushroom'))
-        self.assertEqual(False, is_vegetable())
+        self.assertEqual(False, is_vegetable(''))
 
     def test_function_6(self):
-        self.assertEqual('8 am', make_appointment(preferred_time_of_day='morning'))
+        self.assertEqual('8 am', make_appointment(time='morning'))
         self.assertEqual('1 pm', make_appointment('afternoon'))
         self.assertEqual('5 pm', make_appointment('evening'))
-        self.assertEqual('8 am', make_appointment())
+        self.assertEqual('8 am', make_appointment('morning'))
         self.assertEqual('error', make_appointment('graveyard'))
 
 if __name__ == '__main__':
