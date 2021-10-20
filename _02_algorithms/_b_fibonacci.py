@@ -18,4 +18,11 @@ if __name__ == '__main__':
     #     prints it. The for loop should repeat 10 times.
     #  4. Now try to figure out how to change the variables before the for
     #     loop repeats so the sequence of numbers is correct.
-    pass
+    f=10
+    def fib(n):
+        if n==0 or n==1:
+            return 1
+        else:
+            return fib(n-1)+fib(n-2)
+    print(fib(f-1))   
+        

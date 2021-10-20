@@ -13,4 +13,16 @@ if __name__ == '__main__':
     #     For example, if they enter their name as Alexander Hamilton
     #     their goofy name will be AlExAnDeR HaMiLtOn
     #  3. Show the user the goofy version of their name in a pop-up.
-    pass
+    
+    def goofy(string):
+        import random
+        empty=''
+        for i in string:
+            rand=random.randint(1,2)
+            print(i)
+            if rand==1:
+                empty+=i.lower()
+            else:
+                empty+=i.upper()
+        return empty
+    print(goofy('sana'))

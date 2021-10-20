@@ -3,8 +3,15 @@ Have the turtle draw a row of houses.
 """
 from tkinter import messagebox, simpledialog, Tk
 
-
+import turtle
+t=turtle.Turtle()
+import random
 if __name__ == '__main__':
+    window = turtle.Screen()
+    window.bgcolor('white')
+    t.speed(2)
+    t.color('green')
+    t.pencolor('blue')
     # TODO)
     #   1) Move the turtle to the left side of the window near the bottom.
     #   2) Draw ONE flat-topped house with height=100 and green grass after it.
@@ -25,4 +32,52 @@ if __name__ == '__main__':
     #      (JUST the roof part): draw_pointy_roof, draw_flat_roof
     #   11) By calling the correct "roof" function, make large houses have
     #      flat roofs and all the others have pointy roofs.
-    pass
+    def draw_house(h):
+       x=turtle.window_width()
+       for i in range(4):
+           t.forward(h)
+           t.left(90)
+       t.pencolor('green')
+       t.goto(-x/2,0)
+       t.forward(x)
+    rand=random.randint(0,250)
+  #  draw_house(rand)
+
+    def roof():
+        t.penup()
+        t.goto(0,250)
+        t.pendown()
+        for i in range(3):
+            t.forward(250)
+            t.left(120)
+        t.penup()
+
+    def draw_house2(size):
+        x=turtle.window_width()
+        if size=='small':
+            for i in range(4):
+               t.forward(100)
+               t.left(90)
+            t.pencolor('green')
+            t.goto(-x/2,0)
+            t.forward(x)
+        elif size=='medium':
+            for i in range(4):
+                   t.forward(120)
+                   t.left(90)
+            t.pencolor('green')
+            t.goto(-x/2,0)
+            t.forward(x)
+        elif size=='large':
+            for i in range(4):
+                   t.forward(250)
+                   t.left(90)
+            roof()
+            t.pencolor('green')
+            t.goto(-x/2,0)
+            t.pendown()
+            t.forward(x)
+        else:
+            t.write('follow directions')
+    draw_house2('large')
+    turtle.done()

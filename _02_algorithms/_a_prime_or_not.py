@@ -12,4 +12,17 @@ if __name__ == '__main__':
     #     is prime.
     #  3. If the number is divisible by any number other than 1 or itself,
     #     the number is not prime.
-    pass
+    def prime(num):
+        num=num**0.5
+        num//=1
+        num=str(num)
+        num=num[0:-2]
+        num=int(num)
+        print(num)
+        for i in range(2,num-1):
+            if num%i==0:
+                return True
+        return False
+    print(prime(8))
+
+

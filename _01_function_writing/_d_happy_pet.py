@@ -21,7 +21,9 @@ class interactfish():
             global happiness
             print(activity)
             act=input('which activity?')
-            while happiness>0 or happiness==100:
+            while happiness>0 and happiness<100:
+                print(activity)
+                act=input('which activity?')
                 if act=='walk':
                     happiness+=fish['walk']
                     print('your fish is now dead due to your incompetence')
@@ -70,9 +72,9 @@ class interactcat():
 
         def interactions(self,cat):
             global happiness
-            print(activity)
-            act=input('which activity?')
-            while happiness>0 or happiness==100:
+            while happiness>0 and happiness<100:
+                print(activity)
+                act=input('which activity?')
                 if act=='walk':
                     happiness+=cat['walk']
                     print('your cat does not appreciate your incompetence')
@@ -91,7 +93,7 @@ class interactcat():
                     print(happiness)
                 elif act=='pet':
                     happiness+=cat['pet']
-                    print('your act did appreciate that')
+                    print('your cat did appreciate that')
                     print(happiness)
                 elif act=='bathe':
                     happiness+=cat['bathe']
@@ -118,6 +120,46 @@ class interactfrog():
         'bathe':50,
         'speak to it in it\'s language': -15
         }
+        def interactions(self,frog):
+            global happiness
+            while happiness>0 and happiness<100:
+                print(activity)
+                act=input('which activity?')
+                if act=='walk':
+                    happiness+=frog['walk']
+                    print('your frog does not appreciate your incompetence')
+                    print(happiness)
+                elif act=='feed':
+                    happiness+=frog['feed']
+                    print('good job! you fed your frog')
+                    print(happiness)
+                elif act=='give drink':
+                    happiness+=frog['give drink']
+                    print('noice')
+                    print(happiness)
+                elif act=='play':
+                    happiness+=frog['play']
+                    print('yay! your frog loves you more!')
+                    print(happiness)
+                elif act=='pet':
+                    happiness+=frog['pet']
+                    print('your frog is now dead from the oils on your skin')
+                    print(happiness)
+                    break
+                elif act=='bathe':
+                    happiness+=frog['bathe']
+                    print('your frog loves you so much!')
+                    print(happiness)
+                elif act=='speak to it in it\'s language':
+                    happiness+=frog['speak to it in it\'s language']
+                    print('your frog doesn\'t understand a word you said and now despies you for your pronunciation and horribble grammar (it loves you anyway)')
+                    print(happiness)
+                else:
+                    print('you lose, follow the directions dimwit')
+            if happiness<0:
+                print('you can\'t even keep a frog alive (you lost)')
+            else:
+                print('good job! your frog has reached maximum happiness (you won)')
     
 class interactdog():
         dog={
@@ -129,22 +171,50 @@ class interactdog():
         'bathe':3,
         'speak to it in it\'s language': 0
         }
-        
+        def interactions(self,dog):
+            global happiness
+            while happiness>0 and happiness<100:
+                print(activity)
+                act=input('which activity?')
+                if act=='walk':
+                    happiness+=dog['walk']
+                    print('uwu')
+                    print(happiness)
+                elif act=='feed':
+                    happiness+=dog['feed']
+                    print('good job! you fed your dog')
+                    print(happiness)
+                elif act=='give drink':
+                    happiness+=dog['give drink']
+                    print('noice')
+                    print(happiness)
+                elif act=='play':
+                    happiness+=dog['play']
+                    print('yay! your dog loves you more!')
+                    print(happiness)
+                elif act=='pet':
+                    happiness+=dog['pet']
+                    print('uwu')
+                    print(happiness)
+                    break
+                elif act=='bathe':
+                    happiness+=dog['bathe']
+                    print('your dog loves you so much!')
+                    print(happiness)
+                elif act=='speak to it in it\'s language':
+                    happiness+=dog['speak to it in it\'s language']
+                    print('your dog doesn\'t understand a word you said and now despies you for your pronunciation and horribble grammar (it loves you anyway)')
+                    print(happiness)
+                else:
+                    print('you lose, follow the directions dimwit')
+            if happiness<0:
+                print('you can\'t even keep a dog alive (you lost)')
+            else:
+                print('good job! your gog has reached maximum happiness (you won)')
 
 
 if __name__ == '__main__':
-    # TODO)
-    #   1. Ask the user to enter the type of pet they want (give them a few
-    #      choices).
-    #   2. Use a loop (maybe a while loop?) to keep offering interactions with
-    #      their pet until the desired pet happiness level has been reached.
-    #      Examples of activities are: Feed, Walk, Play
-    #   3. Write a method for each of the pet activities offered.
-    #      Each activity should increase (or decrease) the pet's happiness
-    #      level by a different amount, depending on the kind of pet they
-    #      have. For example, a fish might not enjoy a walk!
     pets=['fish','cat','frog','dog']
-    
     goal=100
     activity=['walk','feed','give drink','play','pet','bathe','speak to it in it\'s language']
     
@@ -153,10 +223,17 @@ if __name__ == '__main__':
         pet=input('which pet do you want?(out of the options above)')
         print('you now have a',pet)
         return pet
-
-    which()
-    if which=='fish':
+    pet=which()
+    if pet=='fish':
         print(interactfish.interactions(interactfish,interactfish.fish,activity))
+    elif pet=='cat':
+        print(interactcat.interactions(interactcat,interactcat.cat))
+    elif pet=='frog':
+        print(interactfrog.interactions(interactfrog,interactfrog.frog))
+    elif pet=='dog':
+        print(interactdog.interactions(interactdog,interactdog.dog))
+    
+    
 
 
 
